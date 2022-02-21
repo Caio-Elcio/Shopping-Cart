@@ -1,6 +1,5 @@
 import AxiosMock from 'axios-mock-adapter';
 import { waitFor, render, fireEvent } from '@testing-library/react';
-
 import { api } from '../../services/api';
 import Home from '../../pages/Home';
 import { useCart } from '../../hooks/useCart';
@@ -74,7 +73,6 @@ describe('Home Page', () => {
       secondProductCartQuantity,
       thirdProductCartQuantity,
     ] = getAllByTestId('cart-product-quantity');
-
     expect(firstProductCartQuantity).toHaveTextContent('2');
     expect(secondProductCartQuantity).toHaveTextContent('1');
     expect(thirdProductCartQuantity).toHaveTextContent('0');
@@ -105,11 +103,8 @@ describe('Home Page', () => {
         },
       ],
     });
-
     rerender(<Home />);
-
     const [firstProductCartQuantity] = getAllByTestId('cart-product-quantity');
-
     expect(firstProductCartQuantity).toHaveTextContent('3');
   });
 });

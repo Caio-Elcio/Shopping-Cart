@@ -1,5 +1,4 @@
 import { render, fireEvent } from '@testing-library/react';
-
 import { useCart } from '../../hooks/useCart';
 import Cart from '../../pages/Cart';
 
@@ -37,7 +36,6 @@ describe('Cart Page', () => {
 
   it('should be able to increase/decrease a product amount', () => {
     const { getAllByTestId, rerender } = render(<Cart />);
-
     const [incrementFirstProduct] = getAllByTestId('increment-product');
     const [, decrementSecondProduct] = getAllByTestId('decrement-product');
     const [firstProductAmount, secondProductAmount] = getAllByTestId(
@@ -79,16 +77,13 @@ describe('Cart Page', () => {
         },
       ],
     });
-
     rerender(<Cart />);
-
     expect(firstProductAmount).toHaveDisplayValue('2');
     expect(secondProductAmount).toHaveDisplayValue('1');
   });
 
   it('should not be able to decrease a product amount when value is 1', () => {
     const { getAllByTestId } = render(<Cart />);
-
     const [decrementFirstProduct] = getAllByTestId('decrement-product');
     const [firstProductAmount] = getAllByTestId('product-amount');
 
@@ -102,7 +97,6 @@ describe('Cart Page', () => {
 
   it('should be able to remove a product', () => {
     const { getAllByTestId, rerender } = render(<Cart />);
-
     const [removeFirstProduct] = getAllByTestId('remove-product');
     const [firstProduct, secondProduct] = getAllByTestId('product');
 
@@ -125,9 +119,7 @@ describe('Cart Page', () => {
         },
       ],
     });
-
     rerender(<Cart />);
-
     expect(firstProduct).not.toBeInTheDocument();
     expect(secondProduct).toBeInTheDocument();
   });

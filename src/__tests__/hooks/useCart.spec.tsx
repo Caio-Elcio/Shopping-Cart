@@ -1,6 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
 import AxiosMock from 'axios-mock-adapter';
-
 import { toast } from 'react-toastify';
 import { api } from '../../services/api';
 import { useCart, CartProvider } from '../../hooks/useCart';
@@ -147,7 +146,6 @@ describe('useCart Hook', () => {
       },
       { timeout: 200 }
     );
-
     expect(result.current.cart).toEqual(
       expect.arrayContaining(initialStoragedData)
     );
@@ -237,7 +235,6 @@ describe('useCart Hook', () => {
         timeout: 200,
       }
     );
-
     expect(result.current.cart).toEqual(
       expect.arrayContaining(initialStoragedData)
     );
@@ -356,7 +353,6 @@ describe('useCart Hook', () => {
       },
       { timeout: 200 }
     );
-
     expect(result.current.cart).toEqual(
       expect.arrayContaining(initialStoragedData)
     );
@@ -387,7 +383,6 @@ describe('useCart Hook', () => {
       },
       { timeout: 200 }
     );
-
     expect(result.current.cart).toEqual(
       expect.arrayContaining(initialStoragedData)
     );
